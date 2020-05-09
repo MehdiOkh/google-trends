@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" prefHeight="315.0" prefWidth="385.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane prefHeight="313.0" prefWidth="386.0">
+         <children>
+            <TabPane prefHeight="453.0" prefWidth="598.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="بارگذاری فایل">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton layoutX="125.0" layoutY="41.0" onAction="#loadBtnClicked" prefHeight="45.0" prefWidth="336.0" style="-fx-background-color: grey;" text="بارگذاری فایل" textFill="WHITE">
+                                 <font>
+                                    <Font name="Californian FB" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                              <TableView fx:id="tableView" layoutX="127.0" layoutY="159.0" prefHeight="238.0" prefWidth="333.0">
+                                <columns>
+                                  <TableColumn fx:id="countryColumn" prefWidth="167.0" text="کشور" />
+                                  <TableColumn fx:id="interestColumn" prefWidth="165.0" text="میزان علاقه" />
+                                </columns>
+                              </TableView>
+                              <JFXComboBox fx:id="trendList" focusColor="#365eff" labelFloat="true" layoutX="127.0" layoutY="105.0" prefHeight="35.0" prefWidth="332.0" promptText="ترند مورد نظر" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="نمودار">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <LineChart fx:id="lineChart" animated="false" layoutX="29.0" layoutY="80.0" prefHeight="331.0" prefWidth="543.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <JFXComboBox fx:id="chartTrend" labelFloat="true" layoutX="317.0" layoutY="46.0" prefHeight="25.0" prefWidth="235.0" promptText="نام ترند " />
+                              <JFXToggleButton fx:id="multipleTrend" layoutX="12.0" layoutY="-13.0" prefHeight="0.0" prefWidth="155.0" text="مقایسه چند ترند" />
+                              <JFXComboBox fx:id="chartCountryName" labelFloat="true" layoutX="72.0" layoutY="46.0" prefHeight="25.0" prefWidth="234.0" promptText="نام کشور" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="خروجی">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane layoutX="137.0" layoutY="36.0" prefHeight="353.0" prefWidth="298.0" style="-fx-border-color: #BBC8FF; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: #F0F1F8;">
+                                 <children>
+                                    <JFXButton layoutX="27.0" layoutY="227.0" onAction="#onExportClicked" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: grey;" text="محل فایل خروجی" textFill="WHITE" />
+                                    <JFXComboBox fx:id="cb" focusColor="#365eff" layoutX="28.0" layoutY="95.0" prefHeight="32.0" prefWidth="249.0" promptText="نام کشور موردنظر" />
+                                    <Label fx:id="message" layoutX="27.0" layoutY="292.0" prefHeight="26.0" prefWidth="253.0" textFill="#10bc00" />
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
